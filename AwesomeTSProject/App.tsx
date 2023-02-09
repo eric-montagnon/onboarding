@@ -96,6 +96,19 @@ function App(): JSX.Element {
   );
 }
 
+const HelloWorldApp = () => {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+      <Text>Hello, world!</Text>
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
@@ -115,4 +128,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default HelloWorldApp;
