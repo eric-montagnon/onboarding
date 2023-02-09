@@ -98,13 +98,10 @@ function App(): JSX.Element {
 
 const HelloWorldApp = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <Text>Hello, world!</Text>
+    <View style={styles.cont}>
+      <View style={styles.boxstyle}>
+        <Text style={styles.text}> Hello !</Text>
+      </View>
     </View>
   );
 };
@@ -125,6 +122,26 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
+  },
+  cont: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  boxstyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 200,
+    padding: 20,
+    width: 200,
+    backgroundColor: 'red',
+    borderRadius: 100 / 2,
+  },
+  text: {
+    color: 'green',
+    alignItems: 'center',
+    fontWeight: 'bold',
+    fontSize: 25,
   },
 });
 
