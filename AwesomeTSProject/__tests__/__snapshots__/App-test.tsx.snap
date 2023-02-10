@@ -5,171 +5,29 @@ exports[`renders correctly 1`] = `
   style={
     {
       "flex": 1,
-      "flexDirection": "column",
+      "padding": 24,
     }
   }
 >
-  <View
-    style={
-      {
-        "backgroundColor": "lightgrey",
-        "flexDirection": "row",
-        "padding": 10,
-      }
-    }
+  <RCTScrollView
+    data={[]}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
   >
-    <Image
-      source={
-        {
-          "uri": "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
-        }
-      }
-      style={
-        {
-          "height": 100,
-          "width": 100,
-        }
-      }
-    />
-    <View
-      style={
-        {
-          "flexDirection": "column",
-        }
-      }
-    >
-      <Text
-        style={
-          {
-            "color": "black",
-            "fontSize": 18,
-            "fontWeight": "bold",
-          }
-        }
-      >
-         
-        Margarita
-      </Text>
-      <Text
-        style={
-          {
-            "color": "black",
-            "fontSize": 12,
-          }
-        }
-      >
-         
-        Ordinary Drink
-      </Text>
-    </View>
-  </View>
-  <View
-    style={
-      {
-        "backgroundColor": "lightgrey",
-        "flexDirection": "row",
-        "padding": 10,
-      }
-    }
-  >
-    <Image
-      source={
-        {
-          "uri": "https://www.thecocktaildb.com/images/media/drink/bry4qh1582751040.jpg",
-        }
-      }
-      style={
-        {
-          "height": 100,
-          "width": 100,
-        }
-      }
-    />
-    <View
-      style={
-        {
-          "flexDirection": "column",
-        }
-      }
-    >
-      <Text
-        style={
-          {
-            "color": "black",
-            "fontSize": 18,
-            "fontWeight": "bold",
-          }
-        }
-      >
-         
-        Blue Margarita
-      </Text>
-      <Text
-        style={
-          {
-            "color": "black",
-            "fontSize": 12,
-          }
-        }
-      >
-         
-        Ordinary Drink
-      </Text>
-    </View>
-  </View>
-  <View
-    style={
-      {
-        "backgroundColor": "lightgrey",
-        "flexDirection": "row",
-        "padding": 10,
-      }
-    }
-  >
-    <Image
-      source={
-        {
-          "uri": "https://www.thecocktaildb.com/images/media/drink/loezxn1504373874.jpg",
-        }
-      }
-      style={
-        {
-          "height": 100,
-          "width": 100,
-        }
-      }
-    />
-    <View
-      style={
-        {
-          "flexDirection": "column",
-        }
-      }
-    >
-      <Text
-        style={
-          {
-            "color": "black",
-            "fontSize": 18,
-            "fontWeight": "bold",
-          }
-        }
-      >
-         
-        Tommy's Margarita
-      </Text>
-      <Text
-        style={
-          {
-            "color": "black",
-            "fontSize": 12,
-          }
-        }
-      >
-         
-        Ordinary Drink
-      </Text>
-    </View>
-  </View>
+    <View />
+  </RCTScrollView>
 </View>
 `;
