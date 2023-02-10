@@ -6,52 +6,68 @@
  */
 
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {useEffect, useState} from 'react';
+import {
+  ActivityIndicator,
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
-import * as data from './myFile.json';
-const drink1 = data.drinks[0];
-const drink2 = data.drinks[1];
-const drink3 = data.drinks[2];
+type Drink = {
+  idDrink: number;
+  strDrink: string;
+  strDrinkThumb: string;
+  strCategory: string;
+};
 
 function App() {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState<Drink[]>([]);
+
+  const getDrinks = async () => {
+    try {
+      const response = await fetch(
+        'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink',
+      );
+      const json = await response.json();
+      setData(json.drinks);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getDrinks();
+  }, []);
+
   return (
-    <View style={styles.container}>
-      <View style={styles.item}>
-        <Image
-          style={styles.image}
-          source={{
-            uri: drink1.strDrinkThumb,
-          }}
+    <View style={{flex: 1, padding: 24}}>
+      {isLoading ? (
+        <ActivityIndicator testID="loader" />
+      ) : (
+        <FlatList
+          data={data}
+          renderItem={({item}) => (
+            <View style={styles.item}>
+              <Image
+                style={styles.image}
+                source={{
+                  uri: item.strDrinkThumb,
+                }}
+              />
+              <View style={{flexDirection: 'column'}}>
+                <Text style={styles.title}> {item.strDrink}</Text>
+                <Text style={styles.description}> {item.strCategory}</Text>
+              </View>
+            </View>
+          )}
         />
-        <View style={{flexDirection: 'column'}}>
-          <Text style={styles.title}> {drink1.strDrink}</Text>
-          <Text style={styles.description}> {drink1.strCategory}</Text>
-        </View>
-      </View>
-      <View style={styles.item}>
-        <Image
-          style={styles.image}
-          source={{
-            uri: drink2.strDrinkThumb,
-          }}
-        />
-        <View style={{flexDirection: 'column'}}>
-          <Text style={styles.title}> {drink2.strDrink}</Text>
-          <Text style={styles.description}> {drink2.strCategory}</Text>
-        </View>
-      </View>
-      <View style={styles.item}>
-        <Image
-          style={styles.image}
-          source={{
-            uri: drink3.strDrinkThumb,
-          }}
-        />
-        <View style={{flexDirection: 'column'}}>
-          <Text style={styles.title}> {drink3.strDrink}</Text>
-          <Text style={styles.description}> {drink3.strCategory}</Text>
-        </View>
-      </View>
+      )}
     </View>
   );
 }
