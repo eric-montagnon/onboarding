@@ -31,3 +31,5 @@ it('renders correctly', async () => {
 
   expect(screen).toMatchSnapshot();
 });
+
+it('getDrinks modifies the value of text', async () => {});
